@@ -1,0 +1,55 @@
+import random
+
+# Define the questions and answers
+questions = [
+    {
+        "question": "What is the largest planet in the solar system?",
+        "options": ["A) Saturn", "B) Uranus", "C) Earth", "D) Jupiter"],
+        "answer": "D"
+    },
+    {
+        "question": "What is the smallest country in the world by area?",
+        "options": ["A) Monaco", "B) Tuvalu", "C) Vatican City", "D) Nauru"],
+        "answer": "C"
+    },
+    {
+        "question": "Who is known as the 'father of computers'?",
+        "options": ["A) Pascal", "B) Hollerith", "C) Newman", "D) Charles Babbage"],
+        "answer": "D"
+    },
+    {
+        "question": "Who directed the movie 'Interstellar'?",
+        "options": ["A)  James Gunn", "B) Christopher Nolan", "C) Steven Spielberg", "D) James Cameron"],
+        "answer": "B"
+    },
+    {
+        "question": "Who is the founder of Facebook?",
+        "options": ["A) Elon Musk", "B) Bill Gates", "C) Mark Zuckerberg", "D) Jeff Bezos"],
+        "answer": "C"
+    }
+]
+
+def ask_question(question):
+    print("\n" + question["question"])
+    for option in question["options"]:
+        print(option)
+    answer = input("Enter the letter of your answer: ").upper()
+    return answer == question["answer"]
+
+def run_quiz(questions):
+    score = 0
+    
+
+    for question in questions:
+        if ask_question(question):
+            print("Correct!")
+            score += 1
+        else:
+            print(f"Wrong! The correct answer was {question['answer']}.")
+    print(f"\nYour final score is {score}/{len(questions)}.")
+   
+
+if __name__ == "__main__":
+    print("Welcome to the Quiz Game!")
+    run_quiz(questions)
+    input("Press any key to exit the game:")
